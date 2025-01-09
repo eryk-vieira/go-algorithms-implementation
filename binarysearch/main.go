@@ -3,21 +3,21 @@ package main
 // Time complexity O(log₂n)
 // This means, in the worst case the target requires log₂(n). where n is the size of the list.
 func binarySearch(orderedList []int, search int) *int {
-	down := 0
-	up := len(orderedList) - 1
+	low := 0
+	high := len(orderedList) - 1
 
-	for down <= up {
-		middle := (down + up) / 2
-		guess := orderedList[middle]
+	for low <= high {
+		mid := (low + high) / 2
+		guess := orderedList[mid]
 
 		if guess == search {
-			return &middle
+			return &mid
 		}
 
 		if guess > search {
-			up = middle - 1
+			high = mid - 1
 		} else {
-			down = middle + 1
+			low = mid + 1
 		}
 	}
 
