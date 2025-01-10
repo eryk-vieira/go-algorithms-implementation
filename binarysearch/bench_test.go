@@ -4,6 +4,7 @@ import "testing"
 
 func BenchmarkCompareSearches(b *testing.B) {
 	orderedList := make([]int, 1_000_000)
+
 	for i := 0; i < 1_000_000; i++ {
 		orderedList[i] = i + 1
 	}
