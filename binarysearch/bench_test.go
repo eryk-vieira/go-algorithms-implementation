@@ -10,12 +10,16 @@ func BenchmarkCompareSearches(b *testing.B) {
 	}
 
 	b.Run("BinarySearch", func(b *testing.B) {
+		b.ReportAllocs()
+
 		for i := 0; i < b.N; i++ {
 			binarySearch(orderedList, 999_999)
 		}
 	})
 
 	b.Run("LinearSearch", func(b *testing.B) {
+		b.ReportAllocs()
+
 		for i := 0; i < b.N; i++ {
 			linearSearch(orderedList, 999_999)
 		}

@@ -2,7 +2,7 @@ package main
 
 // Time complexity O(log₂n)
 // This means, in the worst case the target requires log₂(n). where n is the size of the list.
-func binarySearch(orderedList []int, search int) *int {
+func binarySearch(orderedList []int, search int) int {
 	low := 0
 	high := len(orderedList) - 1
 
@@ -11,7 +11,7 @@ func binarySearch(orderedList []int, search int) *int {
 		guess := orderedList[mid]
 
 		if guess == search {
-			return &mid
+			return mid
 		}
 
 		if guess > search {
@@ -21,17 +21,18 @@ func binarySearch(orderedList []int, search int) *int {
 		}
 	}
 
-	return nil
+	return -1
 }
 
 // Time complexity O(n)
 // This means, in the worst case will need to scan all the list in order to find or not the target.
-func linearSearch(orderedList []int, search int) *int {
-	for i, item := range orderedList {
-		if item == search {
-			return &i
+// Returns -1 if the search was not found
+func linearSearch(orderedList []int, search int) int {
+	for i := 0; i < len(orderedList); i++ {
+		if search == orderedList[i] {
+			return i
 		}
 	}
 
-	return nil
+	return -1
 }

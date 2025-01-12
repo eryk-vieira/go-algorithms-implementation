@@ -6,6 +6,8 @@ import (
 )
 
 func BenchmarkSelectionSort(b *testing.B) {
+	b.ReportAllocs()
+
 	size := 10_000
 
 	testData := make([]int, size)
